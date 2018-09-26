@@ -1,0 +1,32 @@
+[
+  {
+    "name":"Michał",
+    "reviewing":false,
+    "last_selection":"2018-09-26T10:48:15Z"
+  },
+  {
+    "name":"Deepika",
+    "reviewing":true,
+    "last_selection":"2018-09-26T10:46:44Z"
+  },
+  {
+    "name":"Andy",
+    "reviewing":true,
+    "last_selection":"2018-09-26T10:46:43Z"
+  },
+  {
+    "name":"Jose",
+    "reviewing":true,
+    "last_selection":"2018-09-26T10:46:44Z"
+  },
+  {
+    "name":"Kartheek",
+    "reviewing":true,
+    "last_selection":"2018-09-26T10:46:42Z"
+  },
+  {
+    "name":"Zukky",
+    "reviewing":false,
+    "last_selection":"2018-09-26T10:47:08Z"
+  }
+]
