@@ -9,7 +9,6 @@ with open(reviewer_file) as f:
 
 with open('../config.json') as f:
   slack_webhook_url = json.loads(f.read())['SLACK_WEBHOOK_URL']
-print(slack_webhook_url)
 
 available = [elem for elem in reviewer_list if elem['reviewing'] == True ]
 if not available:
