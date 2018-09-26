@@ -1,5 +1,5 @@
 require "oj"
-require "pry"
+require "httparty"
 require "time"
 
 def load_reviewers
@@ -26,9 +26,21 @@ def select_reviewer
   return selection
 end
 
+def notify_slack(webhook_url, name)
+  result = HTTParty.post(webhook_url,
+    body: Oj.dump({
+      "text" => "Ruby says: #{name}",
+      "channel" => "#echo-chamber"
+    }),
+    headers: { "Content-Type" => "application/json" }
+  )
+end
+
 @reviewer_path = "../reviewers.json"
+@config = Oj.load(File.read("../config.json"))
+
 @reviewers = load_reviewers
 selected = select_reviewer
 
-puts selected["name"]
+notify_slack(@config["SLACK_WEBHOOK_URL"], selected["name"])
 dump_reviewers
