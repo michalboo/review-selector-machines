@@ -7,13 +7,15 @@ def reset_list(reviewers)
   return reviewers
 end
 
+def random_active(list)
+  return list.select { |reviewer| reviewer["reviewing"] == true }.sample
+end
+
 reviewer_path = "../reviewers.json"
 reviewers = Oj.load(File.read(reviewer_path))
 config = Oj.load(File.read("../config.json"))
 
-selected = 
-  reviewers.shuffle.find { |reviewer| reviewer["reviewing"] == true } ||
-  reset_list(reviewers).shuffle.find { |reviewer| reviewer["reviewing"] == true }
+selected = random_active(reviewers) || random_active(reset_list(reviewers))
 
 selected["reviewing"] = false
 selected["last_selection"] = Time.now.utc.iso8601
